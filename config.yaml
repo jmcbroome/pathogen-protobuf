@@ -1,4 +1,4 @@
-reference: "rsv.fasta"
+reference: "reference.fasta"
 input_pb: ~
 minimap: "minimap2"
 fatovcf: "./faToVcf"

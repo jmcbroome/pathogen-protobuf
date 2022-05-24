@@ -21,7 +21,7 @@ rule msa:
     shell:
         """
         python3 ViralMSA.py -s {input} -r {config[reference]} -e none -o tmp
-        mv tmp/{sample}.fasta.aln .
+        mv tmp/{output} .
         rm -r tmp
         """
 
@@ -33,14 +33,14 @@ rule fatovcf:
     shell:
         "{config[fatovcf]} {input} {output}"
 
-if len(config["input_pb"]) > 0:
+if config["input_pb"] != None:
     rule expand_tree:
         input:
             "{sample}.vcf"
         output:
             "{sample}.pb"
         shell:
-            "usher -t seed.nwk -v {input} -o {output}"
+            "usher -i {config[input_pb]} -v {input} -o {output}"
 else:
     rule build_tree:
         input:
@@ -48,5 +48,4 @@ else:
         output:
             "{sample}.pb"
         shell:
-            "usher -i {config[input_pb]} -v {input} -o {output}"
-
+            "usher -t seed.nwk -v {input} -o {output}"
