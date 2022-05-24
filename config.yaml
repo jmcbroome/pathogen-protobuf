@@ -1,0 +1,5 @@
+reference: "rsv.fasta"
+input_pb: ~
+minimap: "minimap2"
+fatovcf: "./faToVcf"
+gbmunge: "./gbmunge/src/gbmunge"
