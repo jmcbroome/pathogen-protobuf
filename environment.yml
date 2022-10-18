@@ -6,3 +6,4 @@ dependencies:
   - biopython
   - usher
   - minimap2
+  - snakemake
