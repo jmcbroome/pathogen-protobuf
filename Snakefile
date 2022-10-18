@@ -20,14 +20,22 @@ rule msa:
         "{sample}.fasta.aln"
     shell:
         """
-        python3 ViralMSA.py -s {input} -r {config[reference]} -e none -o tmp
-        mv tmp/{output} .
+        python3 ViralMSA/ViralMSA.py -s {input} -r {config[reference]} -e none -o ./tmp -a minimap2
+        mv tmp/* .
         rm -r tmp
         """
 
-rule fatovcf:
+rule merge:
     input:
         "{sample}.fasta.aln"
+    output:
+        "{sample}.merged.fasta.aln"
+    shell:
+        "cat {config[reference]} {input} > {output}"
+
+rule fatovcf:
+    input:
+        "{sample}.merged.fasta.aln"
     output:
         "{sample}.vcf"
     shell:
