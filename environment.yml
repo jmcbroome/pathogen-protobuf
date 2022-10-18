@@ -1,6 +1,8 @@
+name: pathoproto
 channels:
   - bioconda
   - conda-forge
-packages:
+dependencies:
   - biopython
   - usher
+  - minimap2
