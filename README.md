@@ -5,7 +5,7 @@ Short pipeline to create MAT Protobuf (.pb) files from Genbank (.gb) or fasta fo
 Some dependencies can be installed with conda.
 
 ```
-conda create -f environment.yml
+conda env create -f environment.yml
 ```
 
 You will need [minimap2](https://github.com/lh3/minimap2#install) to perform the alignment. We recommend downloading the precompiled binary for your system and adding it to your system path. You will also need [faToVcf](http://hgdownload.soe.ucsc.edu/admin/exe/) for your architecture. Assure that the paths to your dependencies are correct in the config.yaml file.
