@@ -1,5 +1,6 @@
-reference: "reference.fasta"
+reference: "ref_segment_8.fasta"
 input_pb: ~
 minimap: "minimap2"
 fatovcf: "./faToVcf"
 gbmunge: "./gbmunge/src/gbmunge"
+usher_cmd: "usher-sampled"
