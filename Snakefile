@@ -48,7 +48,7 @@ if config["input_pb"] != None:
         output:
             "{sample}.pb"
         shell:
-            "usher -i {config[input_pb]} -v {input} -o {output}"
+            "{config[usher_cmd]} -i {config[input_pb]} -v {input} -o {output}"
 else:
     rule build_tree:
         input:
@@ -56,4 +56,4 @@ else:
         output:
             "{sample}.pb"
         shell:
-            "usher -t seed.nwk -v {input} -o {output}"
+            "{config[usher_cmd]} -t seed.nwk -v {input} -o {output}"
